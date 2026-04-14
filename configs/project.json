@@ -9,7 +9,8 @@
     "risk",
     "patients"
   ],
-  "accent": "#e76f51",
+  "accent": "#5b2cc8",
+  "secondary_accent": "#a96b2c",
   "dashboard_metrics": [
     {
       "label": "Model Lift",
@@ -45,5 +46,52 @@
     "The primary value proposition is: Estimate readmission risk and expose operational levers for care coordination teams.",
     "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.",
     "Typical stakeholders include analytics, operations, product, and leadership teams working on healthcare, risk, patients."
+  ],
+  "app_archetype": "watchtower",
+  "ui_profile": {
+    "layout": "horizon",
+    "surface": "slate",
+    "font_stack": "\"Space Grotesk\", \"Segoe UI\", sans-serif",
+    "radius": 28,
+    "shadow": 56,
+    "eyebrow_style": "soft",
+    "module_columns": 3,
+    "hero_align": "left",
+    "headline_mode": "normal"
+  },
+  "app_modules": [
+    {
+      "label": "Signal 01",
+      "title": "Incident Prioritizer",
+      "description": "Simulate how incoming events are scored before they hit an operator queue.",
+      "endpoint": "/score",
+      "input_mode": "json",
+      "cta": "Prioritize",
+      "prefill": "{\n  \"features\": {\n    \"engagement_score\": 70,\n    \"tenure_days\": 174,\n    \"payment_miss_count\": 0,\n    \"segment\": \"mid_market\",\n    \"priority_flag\": false\n  }\n}",
+      "hint": "Risk band and top signals will appear here.",
+      "span": "normal"
+    },
+    {
+      "label": "Signal 02",
+      "title": "Alert Delta Review",
+      "description": "Compare current operating metrics with a baseline to explain what changed.",
+      "endpoint": "/analyze",
+      "input_mode": "json",
+      "cta": "Compare Signals",
+      "prefill": "{\n  \"metrics\": {\n    \"acquisition\": 34.6,\n    \"activation\": 36.0,\n    \"retention\": 49.2,\n    \"revenue\": 77.2\n  },\n  \"baseline\": {\n    \"acquisition\": 31.83,\n    \"activation\": 33.12,\n    \"retention\": 45.26,\n    \"revenue\": 71.02\n  }\n}",
+      "hint": "Operational movement summary will appear here.",
+      "span": "normal"
+    },
+    {
+      "label": "Signal 03",
+      "title": "Triage Playbook",
+      "description": "Generate an action-oriented response plan for the next incident handling step.",
+      "endpoint": "/recommend",
+      "input_mode": "json",
+      "cta": "Build Playbook",
+      "prefill": "{\n  \"prompt\": \"Recommend the next best action for Healthcare Readmission Risk.\",\n  \"features\": {\n    \"engagement_score\": 70,\n    \"tenure_days\": 174,\n    \"payment_miss_count\": 0,\n    \"segment\": \"mid_market\",\n    \"priority_flag\": false\n  },\n  \"metrics\": {\n    \"acquisition\": 34.6,\n    \"activation\": 36.0,\n    \"retention\": 49.2,\n    \"revenue\": 77.2\n  }\n}",
+      "hint": "Suggested next actions and rationale will appear here.",
+      "span": "wide"
+    }
   ]
 }

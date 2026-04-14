@@ -6,13 +6,12 @@
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <title>Healthcare Readmission Risk</title>
           <link rel="stylesheet" href="./styles.css">
-          <style>:root { --accent: #e76f51; }</style>
         </head>
-        <body>
-          <div class="page">
+        <body class="surface-slate">
+          <div class="page layout-horizon eyebrow-soft headline-normal modules-3 hero-align-left">
             <section class="hero">
               <div class="panel hero-copy">
-                <span class="eyebrow">Predictive Application</span>
+                <span class="eyebrow" data-health>Signal Watchtower</span>
                 <h1 id="project-title">Healthcare Readmission Risk</h1>
                 <p id="project-summary" class="lead">Estimate readmission risk and expose operational levers for care coordination teams.</p>
                 <ul id="project-tags" class="tag-list">
@@ -26,55 +25,90 @@
 <article class='card'><span>Data Freshness</span><strong>7h</strong><em>steady</em></article>
                 </div>
                 <div class="mini-grid">
-                  <article class='mini-card'><span>Project Type</span><strong>ML</strong></article><article class='mini-card'><span>Domain</span><strong>HealthTech</strong></article><article class='mini-card'><span>Interface</span><strong>FastAPI + Browser UI</strong></article><article class='mini-card'><span>Deployment</span><strong>Docker + CI</strong></article>
+                  <article class='mini-card'><span>Project Type</span><strong>ML</strong></article><article class='mini-card'><span>Domain</span><strong>HealthTech</strong></article><article class='mini-card'><span>Application</span><strong>Signal Watchtower</strong></article><article class='mini-card'><span>Deployment</span><strong>Docker + CI</strong></article>
                 </div>
               </div>
             </section>
             <section class="app-grid">
-              <article class="panel module">
-                <div class="module-header">
-                  <span>Application 01</span>
-                  <h2>Scoring Workbench</h2>
-                  <p>Edit feature inputs and simulate a production prediction pass.</p>
-                </div>
-                <textarea id="score-input"></textarea>
-                <div class="button-row">
-                  <button id="run-score">Run Scoring</button>
-                  <button id="load-defaults" class="secondary" type="button">Reload Defaults</button>
-                </div>
-                <pre id="score-output"></pre>
-              </article>
-              <article class="panel module">
-                <div class="module-header">
-                  <span>Application 02</span>
-                  <h2>KPI Comparison</h2>
-                  <p>Compare current metrics against a baseline and surface the biggest movement.</p>
-                </div>
-                <textarea id="analyze-input"></textarea>
-                <div class="button-row">
-                  <button id="run-analyze">Run Analysis</button>
-                </div>
-                <pre id="analyze-output"></pre>
-              </article>
-              <article class="panel module">
-                <div class="module-header">
-                  <span>Application 03</span>
-                  <h2>Operator Brief</h2>
-                  <p>Ask for a grounded recommendation built from local project context.</p>
-                </div>
-                <textarea id="query-input" class="query-input"></textarea>
-                <div class="button-row">
-                  <button id="run-query">Run Query</button>
-                </div>
-                <pre id="query-output"></pre>
-              </article>
+              <article class="panel module js-module span-normal">
+          <div class="module-header">
+            <span>Signal 01</span>
+            <h2>Incident Prioritizer</h2>
+            <p>Simulate how incoming events are scored before they hit an operator queue.</p>
+          </div>
+          <textarea class="js-input">{
+  &quot;features&quot;: {
+    &quot;engagement_score&quot;: 70,
+    &quot;tenure_days&quot;: 174,
+    &quot;payment_miss_count&quot;: 0,
+    &quot;segment&quot;: &quot;mid_market&quot;,
+    &quot;priority_flag&quot;: false
+  }
+}</textarea>
+          <div class="button-row">
+            <button class="js-run" data-endpoint="/score" data-input-mode="json">Prioritize</button>
+          </div>
+          <pre class="js-output">Risk band and top signals will appear here.</pre>
+        </article>
+<article class="panel module js-module span-normal">
+          <div class="module-header">
+            <span>Signal 02</span>
+            <h2>Alert Delta Review</h2>
+            <p>Compare current operating metrics with a baseline to explain what changed.</p>
+          </div>
+          <textarea class="js-input">{
+  &quot;metrics&quot;: {
+    &quot;acquisition&quot;: 34.6,
+    &quot;activation&quot;: 36.0,
+    &quot;retention&quot;: 49.2,
+    &quot;revenue&quot;: 77.2
+  },
+  &quot;baseline&quot;: {
+    &quot;acquisition&quot;: 31.83,
+    &quot;activation&quot;: 33.12,
+    &quot;retention&quot;: 45.26,
+    &quot;revenue&quot;: 71.02
+  }
+}</textarea>
+          <div class="button-row">
+            <button class="js-run" data-endpoint="/analyze" data-input-mode="json">Compare Signals</button>
+          </div>
+          <pre class="js-output">Operational movement summary will appear here.</pre>
+        </article>
+<article class="panel module js-module span-wide">
+          <div class="module-header">
+            <span>Signal 03</span>
+            <h2>Triage Playbook</h2>
+            <p>Generate an action-oriented response plan for the next incident handling step.</p>
+          </div>
+          <textarea class="js-input">{
+  &quot;prompt&quot;: &quot;Recommend the next best action for Healthcare Readmission Risk.&quot;,
+  &quot;features&quot;: {
+    &quot;engagement_score&quot;: 70,
+    &quot;tenure_days&quot;: 174,
+    &quot;payment_miss_count&quot;: 0,
+    &quot;segment&quot;: &quot;mid_market&quot;,
+    &quot;priority_flag&quot;: false
+  },
+  &quot;metrics&quot;: {
+    &quot;acquisition&quot;: 34.6,
+    &quot;activation&quot;: 36.0,
+    &quot;retention&quot;: 49.2,
+    &quot;revenue&quot;: 77.2
+  }
+}</textarea>
+          <div class="button-row">
+            <button class="js-run" data-endpoint="/recommend" data-input-mode="json">Build Playbook</button>
+          </div>
+          <pre class="js-output">Suggested next actions and rationale will appear here.</pre>
+        </article>
             </section>
             <footer class="footer">
-              <span>Data Science + AI + LLM + RAG Portfolio</span>
+              <span>HealthTech • ML • Signal Watchtower</span>
               <span>healthcare-readmission-risk</span>
             </footer>
           </div>
-          <script id="bootstrap-data" type="application/json">{"project": {"slug": "healthcare-readmission-risk", "title": "Healthcare Readmission Risk", "project_type": "ml", "domain": "HealthTech", "summary": "Estimate readmission risk and expose operational levers for care coordination teams.", "tags": ["healthcare", "risk", "patients"]}, "sample_features": {"engagement_score": 70, "tenure_days": 174, "payment_miss_count": 0, "segment": "mid_market", "priority_flag": false}, "sample_metrics": {"acquisition": 34.6, "activation": 36.0, "retention": 49.2, "revenue": 77.2}, "sample_query": "What is the top priority recommendation?", "knowledge_base": ["Healthcare Readmission Risk is positioned as a HealthTech starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.", "The primary value proposition is: Estimate readmission risk and expose operational levers for care coordination teams.", "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.", "Typical stakeholders include analytics, operations, product, and leadership teams working on healthcare, risk, patients."], "dashboard_metrics": [{"label": "Model Lift", "value": "65%", "delta": "+6.4%"}, {"label": "Serving P95", "value": "118ms", "delta": "-12ms"}, {"label": "Data Freshness", "value": "7h", "delta": "steady"}]}</script>
+          <script id="bootstrap-data" type="application/json">{"project": {"slug": "healthcare-readmission-risk", "title": "Healthcare Readmission Risk", "project_type": "ml", "domain": "HealthTech", "summary": "Estimate readmission risk and expose operational levers for care coordination teams.", "tags": ["healthcare", "risk", "patients"]}, "app_archetype": "watchtower", "ui_profile": {"layout": "horizon", "surface": "slate", "font_stack": "\"Space Grotesk\", \"Segoe UI\", sans-serif", "radius": 28, "shadow": 56, "eyebrow_style": "soft", "module_columns": 3, "hero_align": "left", "headline_mode": "normal"}, "app_modules": [{"label": "Signal 01", "title": "Incident Prioritizer", "description": "Simulate how incoming events are scored before they hit an operator queue.", "endpoint": "/score", "input_mode": "json", "cta": "Prioritize", "prefill": "{\n  \"features\": {\n    \"engagement_score\": 70,\n    \"tenure_days\": 174,\n    \"payment_miss_count\": 0,\n    \"segment\": \"mid_market\",\n    \"priority_flag\": false\n  }\n}", "hint": "Risk band and top signals will appear here.", "span": "normal"}, {"label": "Signal 02", "title": "Alert Delta Review", "description": "Compare current operating metrics with a baseline to explain what changed.", "endpoint": "/analyze", "input_mode": "json", "cta": "Compare Signals", "prefill": "{\n  \"metrics\": {\n    \"acquisition\": 34.6,\n    \"activation\": 36.0,\n    \"retention\": 49.2,\n    \"revenue\": 77.2\n  },\n  \"baseline\": {\n    \"acquisition\": 31.83,\n    \"activation\": 33.12,\n    \"retention\": 45.26,\n    \"revenue\": 71.02\n  }\n}", "hint": "Operational movement summary will appear here.", "span": "normal"}, {"label": "Signal 03", "title": "Triage Playbook", "description": "Generate an action-oriented response plan for the next incident handling step.", "endpoint": "/recommend", "input_mode": "json", "cta": "Build Playbook", "prefill": "{\n  \"prompt\": \"Recommend the next best action for Healthcare Readmission Risk.\",\n  \"features\": {\n    \"engagement_score\": 70,\n    \"tenure_days\": 174,\n    \"payment_miss_count\": 0,\n    \"segment\": \"mid_market\",\n    \"priority_flag\": false\n  },\n  \"metrics\": {\n    \"acquisition\": 34.6,\n    \"activation\": 36.0,\n    \"retention\": 49.2,\n    \"revenue\": 77.2\n  }\n}", "hint": "Suggested next actions and rationale will appear here.", "span": "wide"}], "sample_features": {"engagement_score": 70, "tenure_days": 174, "payment_miss_count": 0, "segment": "mid_market", "priority_flag": false}, "sample_metrics": {"acquisition": 34.6, "activation": 36.0, "retention": 49.2, "revenue": 77.2}, "knowledge_base": ["Healthcare Readmission Risk is positioned as a HealthTech starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.", "The primary value proposition is: Estimate readmission risk and expose operational levers for care coordination teams.", "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.", "Typical stakeholders include analytics, operations, product, and leadership teams working on healthcare, risk, patients."], "dashboard_metrics": [{"label": "Model Lift", "value": "65%", "delta": "+6.4%"}, {"label": "Serving P95", "value": "118ms", "delta": "-12ms"}, {"label": "Data Freshness", "value": "7h", "delta": "steady"}]}</script>
           <script src="./app.js"></script>
         </body>
         </html>
