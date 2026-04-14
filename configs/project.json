@@ -1,0 +1,49 @@
+{
+  "slug": "healthcare-readmission-risk",
+  "title": "Healthcare Readmission Risk",
+  "project_type": "ml",
+  "domain": "HealthTech",
+  "summary": "Estimate readmission risk and expose operational levers for care coordination teams.",
+  "tags": [
+    "healthcare",
+    "risk",
+    "patients"
+  ],
+  "accent": "#e76f51",
+  "dashboard_metrics": [
+    {
+      "label": "Model Lift",
+      "value": "65%",
+      "delta": "+6.4%"
+    },
+    {
+      "label": "Serving P95",
+      "value": "118ms",
+      "delta": "-12ms"
+    },
+    {
+      "label": "Data Freshness",
+      "value": "7h",
+      "delta": "steady"
+    }
+  ],
+  "sample_features": {
+    "engagement_score": 70,
+    "tenure_days": 174,
+    "payment_miss_count": 0,
+    "segment": "mid_market",
+    "priority_flag": false
+  },
+  "sample_metrics": {
+    "acquisition": 34.6,
+    "activation": 36.0,
+    "retention": 49.2,
+    "revenue": 77.2
+  },
+  "knowledge_base": [
+    "Healthcare Readmission Risk is positioned as a HealthTech starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.",
+    "The primary value proposition is: Estimate readmission risk and expose operational levers for care coordination teams.",
+    "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.",
+    "Typical stakeholders include analytics, operations, product, and leadership teams working on healthcare, risk, patients."
+  ]
+}
